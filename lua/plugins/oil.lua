@@ -1,8 +1,10 @@
 return {
   'stevearc/oil.nvim',
-  ---@module 'oil'
-  ---@type oil.SetupOpts
-  opts = {},
   lazy = false,
-} 
+  config = function()
+    require('oil').setup {}
+
+    vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "[Oil] Open parent directory" })
+  end,
+}
 

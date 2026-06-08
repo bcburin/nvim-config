@@ -5,6 +5,15 @@ return {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
 
+        -- Roslyn LSP
+        {
+            "seblyng/roslyn.nvim",
+            ft="cs",
+            opts = {
+                filewatching = "roslyn",
+            },
+        },
+
         -- Autocompletion plugins
         "hrsh7th/nvim-cmp",
         "hrsh7th/cmp-nvim-lsp",
@@ -23,7 +32,12 @@ return {
         },
     },
     config = function()
-        require("mason").setup()
+        require("mason").setup {
+            registries = {
+                "github:mason-org/mason-registry",
+                "github:Crashdummyy/mason-registry",
+            },
+        }
 
         local lspconfig = require("lspconfig")
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -31,7 +45,7 @@ return {
 
         require("mason-lspconfig").setup({
             -- Add LSPs you want installed automatically here
-            ensure_installed = { "lua_ls", "ts_ls", "pyright" },
+            ensure_installed = { "lua_ls", "ts_ls", "pyright", "jsonls", "html" },
             handlers = {
                 -- This default handler sets up all servers installed via Mason
                 function(server_name)
@@ -60,7 +74,11 @@ return {
         })
 
         -- Global LSP Keymaps
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = "Go to Definition" })
+        -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = "Go to Definition" })
+        -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, { desc = "Go to References" })
+        -- vim.keymap.set('n', 'gI', vim.lsp.buf.implementation, { desc = "Go to Implementation" })
+        -- vim.keymap.set('n', 'gT', vim.lsp.buf.type_definition, { desc = "Go to Type Definition" })
+        vim.keymap.set('n', 'rn', vim.lsp.buf.rename, { desc = "Rename" })
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = "Hover Documentation" })
         vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = "Code Action" })
     end,

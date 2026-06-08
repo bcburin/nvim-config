@@ -22,3 +22,7 @@ opt.scrolloff = 8
 -- System clipboard support
 opt.clipboard = "unnamedplus"
 
+-- Diagnostics
+vim.diagnostic.config {
+    virtual_text = true,
+}
