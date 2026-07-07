@@ -21,3 +21,6 @@ keymap.set("v", "<leader>x", ":lua<CR>")
 -- Split
 keymap.set("n", "<leader>sv", "<cmd>vsplit<CR>", { desc = "Split Vertically" })
 keymap.set("n", "<leader>sh", "<cmd>split<CR>", { desc = "Split Horizontally" })
+
+-- Diagnostics
+vim.keymap.set('n', '<leader>d', vim.diagnostic.open_float, { noremap = true, silent = true })
