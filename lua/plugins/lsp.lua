@@ -44,10 +44,16 @@ return {
         local capabilities = cmp_nvim_lsp.default_capabilities()
 
         require("mason-lspconfig").setup({
-            -- Add LSPs you want installed automatically here
             ensure_installed = { "lua_ls", "ts_ls", "pyright", "jsonls", "html" },
+            automatic_enable = {
+                exclude = {
+                    "omnisharp",
+                    -- Installed by VS Code
+                    "vtsls",
+                    "tailwindcss",
+                }
+            },
             handlers = {
-                -- This default handler sets up all servers installed via Mason
                 function(server_name)
                     lspconfig[server_name].setup({
                         capabilities = capabilities,
