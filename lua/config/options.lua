@@ -22,7 +22,23 @@ opt.scrolloff = 8
 -- System clipboard support
 opt.clipboard = "unnamedplus"
 
+-- Whitespace characters
+opt.list = true
+opt.listchars = {
+    tab = '» ',
+    trail = '·',
+    nbsp = '␣',
+}
+
+-- Undo File
+opt.undofile = true
+
+-- Speed
+opt.updatetime = 250
+opt.timeoutlen = 300
+
 -- Diagnostics
 vim.diagnostic.config {
     virtual_text = true,
 }
+
