@@ -17,3 +17,7 @@ keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right split" })
 keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>")
 keymap.set("n", "<leader>x", ":.lua<CR>")
 keymap.set("v", "<leader>x", ":lua<CR>")
+
+-- Split
+keymap.set("n", "<leader>sv", "<cmd>vsplit<CR>", { desc = "Split Vertically" })
+keymap.set("n", "<leader>sh", "<cmd>split<CR>", { desc = "Split Horizontally" })
