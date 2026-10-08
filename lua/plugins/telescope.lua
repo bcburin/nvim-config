@@ -32,6 +32,7 @@ return {
         vim.keymap.set("n", "<leader>fw", builtin.lsp_document_symbols, { desc = "List Document Symbols in Current Workspace" })
         vim.keymap.set("n", "<leader>fW", builtin.lsp_dynamic_workspace_symbols, { desc = "List Document Symbols for All Workspaces" })
         vim.keymap.set("n", "<leader>fD", builtin.diagnostics, { desc = "List Diagnostics" })
+        vim.keymap.set("n", "<leader>fl", builtin.resume, { desc = "Resume Last Picker" })
 
         -- Find Neovim configuration files
         vim.keymap.set("n", "<leader>fc", function() builtin.find_files({ cwd = vim.fn.stdpath("config") }) end, { desc = "Find Neovim Configuration Files" })
